@@ -4,7 +4,7 @@ Plugin Name: Attendly Events
 Plugin URI: http://attendly.com
 Description: Display attendly Events with shortcode, widget or function call.
 	(Uses remote javascript)
-Version: 1.0
+Version: 1.1
 Author: attendly.com
 Author URI: http://attendly.com
 License: A "Slug" license name e.g. GPL2
@@ -13,7 +13,7 @@ License: A "Slug" license name e.g. GPL2
 define('AT_EVENTS_PLUGIN', TRUE);
 define('AT_EVENT_SHORTCODE', 'at_event');
 define('AT_CALENDAR_SHORTCODE', 'at_event_calendar');
-define('AT_EVENT_SCRIPT_HOST', 'https://attendly.me/' );
+define('AT_EVENT_SCRIPT_HOST', 'https://attendly.me' );
 define('AT_EVENTS_USERNAME_OPTION', 'at_events_username');
 define( 'AT_EVENTS_PATH', plugins_url().'/at_events/'); //  );
 define( 'AT_EVENT_CAL_DESC', 'View Event');

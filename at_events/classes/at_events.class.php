@@ -58,7 +58,7 @@ if ( ! class_exists("at_Events_Plugin"))
 
 		public function add_event_javscript($action='display')
 		{
-			$username = get_option(AT_EVENTS_USERNAME_OPTION);// 'bobby3';
+			$username = get_option(AT_EVENTS_USERNAME_OPTION);
 			require_once plugin_dir_path(__FILE__).'../at_events_js_load.php';
 		}
 
