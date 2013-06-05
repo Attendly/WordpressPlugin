@@ -57,17 +57,19 @@ jQuery(document).ready(function() {
 		});
 	}
 
-	//timeout_id = window.setTimeout(data_check, 100);
 	var timeout_id = setInterval(data_check,100);
+	var call_count = 0;
+	var timeout_limit = 70;
 
 	function data_check(){
-		if(typeof _aeevents_json !== 'undefined'){
+		if(typeof _aeevents_json !== 'undefined' ||
+				call_count >= timeout_limit){
 			window.clearInterval(timeout_id);
-			at_add_datepicker_events();
+			if(call_count < timeout_limit){
+				at_add_datepicker_events();
+			}
 		}else{
-			console.log("Checking for DAta");
-			//timeout_id = window.setTimeout(data_check, 100);
-			console.log("__--__--");
+			console.log(call_count++);
 		}
 	}
 });
