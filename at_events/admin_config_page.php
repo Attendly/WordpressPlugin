@@ -116,7 +116,9 @@ jQuery(document).ready(function(){
 <div class="">
 <h4>Adding Events to your site</h4>
 <ul>
-<li>Add the individual Event Using one of the short codes in the table above</li>
+<li>Add a single Event using one of the short codes in the table above</li>
+<li>To add more than one individual event to a page with a shortcode you <strong>must</strong> set a different <pre>div_id</pre> attribute in each shortcode.<br />
+ For example <pre>[<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_1] [<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_2]</pre>
 <li>Add all the events to a page or post using the shortcode<pre>[<?php echo AT_EVENT_SHORTCODE; ?>]</pre></li>
 <li>Use the Events widget in your theme</li>
 <li>Use the Calander shortcode on a page <pre>[<?php echo AT_CALENDAR_SHORTCODE?>]</pre></li>

@@ -105,7 +105,7 @@ if ( ! class_exists("at_Events_Plugin"))
 
 		}
 
-		public function event_shortcode($attr)
+		public function event_shortcode($atts)
 		{
 			extract(shortcode_atts(array(
 					'id' => false,
@@ -121,13 +121,13 @@ if ( ! class_exists("at_Events_Plugin"))
 				$script_params .= '+"&tag_id='.$div_id.'"';
 			}
 
-			if ($attr['id'])
+			if ($id)
 			{
-				$script_params .= '+"&e_id='.$attr['id'].'"';
+				$script_params .= '+"&e_id='.$id.'"';
 			}
 
 			ob_start();
-			require_once plugin_dir_path(__FILE__).'../at_events_js_load.php';
+			require plugin_dir_path(__FILE__).'../at_events_js_load.php';
 			$content = ob_get_contents();
 			ob_end_clean();
 			return $content.'<div id="'.$div_id.'"></div>';
