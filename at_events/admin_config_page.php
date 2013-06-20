@@ -11,7 +11,9 @@ if (isset($_POST['event_settings']))
 
 if (empty($user_name))
 {
-	$message = 'Before you can use this plugin, you need to enter your username. If you don\'t have a username, you can <a href="http://attendly.me/register">register for one here</a>';
+	$message = 'Before you can use this plugin, you need to enter your username.
+	 If you don\'t have a username, you can
+	<a href="http://attendly.me/register">register for one here</a>';
 }
 ?>
 <div class="wrap">
@@ -35,7 +37,8 @@ if (empty($user_name))
 <table class="form-table">
 	<tr valign="top">
     <th scope="row">User name</th>
-    <td><input type="text" name="<?php echo AT_EVENTS_USERNAME_OPTION; ?>" value="<?php echo $user_name ?>" /></td>
+    <td><input type="text" name="<?php echo AT_EVENTS_USERNAME_OPTION;
+    		 ?>" value="<?php echo $user_name ?>" /></td>
     </tr>
     <tr valign="top">
      <th scope="row">Server</th>
@@ -49,7 +52,7 @@ if (empty($user_name))
 if ( ! empty($user_name))
 {
 	$action='nothing';
-	$username= get_option(AT_EVENTS_USERNAME_OPTION); // 'bobby3';
+	$username= get_option(AT_EVENTS_USERNAME_OPTION);
 	require_once plugin_dir_path(__FILE__).'at_events_js_load.php';
 ?>
 <h3>Event List for <?php echo $user_name;?></h3>
@@ -116,12 +119,16 @@ jQuery(document).ready(function(){
 <div class="">
 <h4>Adding Events to your site</h4>
 <ul>
-<li>Add a single Event using one of the short codes in the table above</li>
-<li>To add more than one individual event to a page with a shortcode you <strong>must</strong> set a different <pre>div_id</pre> attribute in each shortcode.<br />
- For example <pre>[<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_1] [<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_2]</pre>
-<li>Add all the events to a page or post using the shortcode<pre>[<?php echo AT_EVENT_SHORTCODE; ?>]</pre></li>
-<li>Use the Events widget in your theme</li>
-<li>Use the Calander shortcode on a page <pre>[<?php echo AT_CALENDAR_SHORTCODE?>]</pre></li>
+	<li>Add a single Event Description using one of the short codes in the table above</li>
+	<li>To add more than one individual event description to a page with a shortcode you <strong>must</strong> set a different <pre>div_id</pre> attribute in each shortcode.<br />
+	 For example <pre>[<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_1] [<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_2]</pre>
+	<li>Add all the event descriptions to a page or post using the shortcode<pre>[<?php echo AT_EVENT_SHORTCODE; ?>]</pre></li>
+	<li>Use the Events widget in your theme</li>
+	<li>Use the Calander shortcode on a page <pre>[<?php echo AT_CALENDAR_SHORTCODE?>]</pre></li>
+	<li>Embed the event ticket purchace using the shorcode <pre>[<?php echo AT_EMBED_SHORTCODE?> id=2347]</pre> <br />
+		To have a minimal embed, which does not include the event description you can use <pre>[<?php echo AT_EMBED_SHORTCODE?> id=2347 style="minimal"]</pre><br />
+		You may also optioinally overide the iframe height with [<?php echo AT_EMBED_SHORTCODE?> id=2347 height="300px"]<br />
+		Note that this iframe needs 650px width for correct display</li>
 </ul>
 </div>
 </div>

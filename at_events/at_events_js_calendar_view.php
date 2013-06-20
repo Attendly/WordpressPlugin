@@ -17,6 +17,7 @@
         				start: this.e_start,
         				url:this.e_url
         				});
+    				//console.log(this);
     				});
     			jQuery('#calendar').fullCalendar({
     				editable: false,

@@ -13,6 +13,8 @@ if ( ! class_exists("at_Events_Plugin"))
 			add_shortcode(AT_EVENT_SHORTCODE, array(__CLASS__, 'event_shortcode'));
 			add_shortcode(AT_CALENDAR_SHORTCODE, array(__CLASS__, 'calendar_shortcode'));
 
+			add_shortcode(AT_EMBED_SHORTCODE, array(__CLASS__, 'embed_shortcode'));
+
 			//	add_filter ( 'the_content', array(__CLASS__, 'filterContent') );
 
 		}
@@ -58,7 +60,7 @@ if ( ! class_exists("at_Events_Plugin"))
 
 		public function add_event_javscript($action='display')
 		{
-			$username = get_option(AT_EVENTS_USERNAME_OPTION);
+			$username = get_option(AT_EVENTS_USERNAME_OPTION);// 'bobby3';
 			require_once plugin_dir_path(__FILE__).'../at_events_js_load.php';
 		}
 
@@ -131,6 +133,30 @@ if ( ! class_exists("at_Events_Plugin"))
 			$content = ob_get_contents();
 			ob_end_clean();
 			return $content.'<div id="'.$div_id.'"></div>';
+		}
+
+		public function embed_shortcode($atts) {
+			extract(shortcode_atts(array(
+				'id' => 'false',
+				'style' => '',
+				height => '600px'
+			), $atts));
+			if ( ! $id)
+			{
+				return;
+			}
+			if ( ! empty($style))
+			{
+				$style = '/'.$style;
+			}
+			$out = '<!-- Tickets START -->
+					<div style="width:100%;text-align:left">
+					  <iframe src="'.AT_EVENT_SCRIPT_HOST.'/e/inline/'.$id.$style.'"
+					  style="border:0px #fff none;" scrolling="no" frameborder="0" marginheight="5px"
+					  marginwidth="5px" vspace="0" hspace="0" height="'.$height.'" width="100%" ></iframe>
+					</div>
+					<!-- Tickets END -->';
+			return $out;
 		}
 	}
 }
