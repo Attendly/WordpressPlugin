@@ -114,21 +114,35 @@ jQuery(document).ready(function(){
 });
 
 </script>
-<?php } ?>
+
 <h3>Instructions</h3>
 <div class="">
-<h4>Adding Events to your site</h4>
-<ul>
-	<li>Add a single Event Description using one of the short codes in the table above</li>
-	<li>To add more than one individual event description to a page with a shortcode you <strong>must</strong> set a different <pre>div_id</pre> attribute in each shortcode.<br />
-	 For example <pre>[<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_1] [<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_2]</pre>
-	<li>Add all the event descriptions to a page or post using the shortcode<pre>[<?php echo AT_EVENT_SHORTCODE; ?>]</pre></li>
-	<li>Use the Events widget in your theme</li>
-	<li>Use the Calander shortcode on a page <pre>[<?php echo AT_CALENDAR_SHORTCODE?>]</pre></li>
-	<li>Embed the event ticket purchace using the shorcode <pre>[<?php echo AT_EMBED_SHORTCODE?> id=2347]</pre> <br />
-		To have a minimal embed, which does not include the event description you can use <pre>[<?php echo AT_EMBED_SHORTCODE?> id=2347 style="minimal"]</pre><br />
-		You may also optioinally overide the iframe height with [<?php echo AT_EMBED_SHORTCODE?> id=2347 height="300px"]<br />
-		Note that this iframe needs 650px width for correct display</li>
-</ul>
+<h4>Short Codes</h4>
+<blockquote>"Introduced in WordPress 2.5 is the Shortcode API, a simple set of functions for creating macro codes for use in post content"</blockquote>
+<p>This plugin allows three types of shortcodes use the event id</p>
+<ol>
+	<li>A calander page <pre>[<?php echo AT_CALENDAR_SHORTCODE?>]</pre> creates a large navigatable calander</li>
+	<li>A ticket purchase embed directly from the event website <pre>[<?php echo AT_EMBED_SHORTCODE?> id=2347]</pre> where the id is the event id number<br>
+		you can optionally set the height, in pixels, of the iframe this creates using <pre>[<?php echo AT_EMBED_SHORTCODE?> id=2347 height="300px"]</pre>
+	</li>
+	<li>A list of all your current events  <pre>[<?php echo AT_EMBED_SHORTCODE?>]</pre>
+	This code can also display a single event if passed the event id <pre>[<?php echo AT_EMBED_SHORTCODE?> id=2347]</pre>
+	(IMPORTANT : only one shortcode showing a sinle event can be displayed)<br />
+	</li>
+	<li>To add more than one shortcode for a single event you <strong>must</strong> set a different div_id attribute in each shortcode.<br />
+	For example <pre>[<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_1] [<?php echo AT_EVENT_SHORTCODE; ?> id=2347 div_id=item_2]</pre>
+</ol>
+
+<h4>Widget Support</h4>
+<p>If your theme supports Widgets there are two widgets supplied with this plugin<p>
+<p>
+<ol>
+	<li>A Calander Widget<br />
+	This displays a small calander which can be navigated with your event dates highlighted</li>
+	<li>An Events List Widget<br />
+	Shows a list of your event descriptions</li>
+</ol>
+
 </div>
+<?php } ?>
 </div>
