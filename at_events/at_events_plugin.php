@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Attendly Events
+Plugin Name: Remote Events Display
 Plugin URI: http://attendly.com
-Description: Display attendly Events with shortcode, widget or function call.
-	(Uses remote javascript)
-Version: 1.1
+Description: Display Remote Events with shortcode, widget or function call.
+	(Uses remote javascript and requires external account)
+Version: 1.2
 Author: attendly.com
 Author URI: http://attendly.com
 License: A "Slug" license name e.g. GPL2
@@ -18,7 +18,7 @@ define('AT_EVENT_SCRIPT_HOST', 'https://dev.attendly.ws' );
 define('AT_EVENTS_USERNAME_OPTION', 'at_events_username');
 define( 'AT_EVENTS_PATH', plugins_url().'/at_events/'); //  );
 define( 'AT_EVENT_CAL_DESC', 'View Event');
-define( 'AT_VERSION', '0.1');
+define( 'AT_VERSION', '1.2');
 
 require_once 'classes/at_events.class.php';
 
