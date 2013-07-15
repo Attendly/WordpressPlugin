@@ -14,6 +14,7 @@ jQuery(document).ready(function() {
 	function at_add_datepicker_events(){
 		jQuery("#datepicker").datepicker({
 		    beforeShowDay: function(date) {
+
 			    var item_index = null;
 		        var result = [true, '', null];
 
@@ -22,7 +23,8 @@ jQuery(document).ready(function() {
 			        if ( s_date.getFullYear() == date.getFullYear()
 					        && s_date.getMonth() == date.getMonth()
 					        && s_date.getDate() == date.getDate() ){
-				        console.log("MATCHED");
+				        // console.log("MATCHED");
+				        // console.log(date);
 				        item_index = index;
 				        return true;
 			        }else{
@@ -32,26 +34,28 @@ jQuery(document).ready(function() {
 
 		        if (match_json.length) {
 		            result = [true, 'highlight', _aeevents_json[item_index].e_name];
+		            _aeevents_json[item_index].display_date = date.valueOf();
 		        }
 		        return result;
 		    },
 		    onSelect: function(dateText) {
-			    //console.log(dateText);
 		        var date,
-		            selectedDate = new Date(dateText),
+		            s_date = new Date(dateText),
 		            i = 0,
 		            event = null;
 
-		        while (i < events.length && !event) {
-		            date = events[i].Date;
-
-		            if (selectedDate.valueOf() === date.valueOf()) {
-		                event = events[i];
-		            }
+		        while (i < _aeevents_json.length && _aeevents_json) {
+			        if(_aeevents_json[i].display_date){
+			            var date = _aeevents_json[i].display_date;
+						if ( s_date.valueOf() == date){
+			                event = _aeevents_json[i];
+			            }
+			        }
 		            i++;
+		            date = null;
 		        }
 		        if (event) {
-		            alert(event.Title);
+		            window.location = event.e_url;
 		        }
 		    }
 		});
@@ -69,7 +73,7 @@ jQuery(document).ready(function() {
 				at_add_datepicker_events();
 			}
 		}else{
-			console.log(call_count++);
+			// console.log(call_count++);
 		}
 	}
 });
