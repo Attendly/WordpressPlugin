@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 $user_name = get_option(AT_EVENTS_USERNAME_OPTION);
 if (isset($_POST['event_settings']))
